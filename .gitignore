@@ -1,0 +1,5 @@
+.DS_Store
+
+# Some files created by the jasmine velocity package.
+app/tests/jasmine/server/unit/package-stubs.js
+app/tests/jasmine/server/unit/packageMocksSpec.js
