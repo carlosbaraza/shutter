@@ -16,6 +16,7 @@ blaze@2.1.2
 blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
+carlosbaraza:admin@1.2.2
 cfs:access-point@0.1.49
 cfs:base-package@0.0.30
 cfs:collection@0.5.5
@@ -117,6 +118,5 @@ velocity:shim@0.1.0
 velocity:source-map-support@0.3.2_1
 webapp@1.2.0
 webapp-hashing@1.0.3
-yogiben:admin@1.2.2
 yogiben:autoform-file@0.2.9
 zimme:active-route@2.0.4_1

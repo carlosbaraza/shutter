@@ -1,15 +1,8 @@
-Posts = new Meteor.Collection('posts');
+Collections = new Meteor.Collection('collections');
 
-Schemas.Posts = new SimpleSchema({
-  image: {
-    type: String,
-    autoform: {
-      afFieldInput: {
-        type: 'fileUpload',
-        collection: 'Images',
-        label: 'Choose file'
-      }
-    }
+Schemas.Collections = new SimpleSchema({
+  items: {
+    type: [String]
   },
   title: {
     type: String,
@@ -56,4 +49,4 @@ Schemas.Posts = new SimpleSchema({
   }
 });
 
-Posts.attachSchema(Schemas.Posts)
+Collections.attachSchema(Schemas.Collections)
