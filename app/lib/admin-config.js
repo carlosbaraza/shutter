@@ -3,13 +3,27 @@ AdminConfig = {
   adminEmails: ['carlos.baraza@ieee.org'],
   skin: 'black-light',
   dashboard: {
-    homeUrl: '/dashboard',
-    widgets: [
-
-    ]
   },
   collections: {
     Items: {},
-    Collections: {}
+    Collections: {
+      routes: {
+        new: {
+          waitOn: function () {
+            return Meteor.subscribe('images');
+          }
+        },
+        edit: {
+          waitOn: function () {
+            return Meteor.subscribe('images');
+          }
+        }
+      },
+      templates: {
+        new: {
+          name: 'AdminCollectionsNew'
+        }
+      }
+    }
   }
 };

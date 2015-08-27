@@ -1,0 +1,23 @@
+<template name="AdminCollectionsNew">
+	<div class="box box-default">
+		<div class="box-body">
+      {{#autoForm collection=collection id="admin_insert" type="insert"}}
+      <fieldset>
+        <legend>Create a Collection</legend>
+
+        <select name="items" data-schema-key="items" multiple="multiple" class="image-picker">
+          {{#each images}}
+            <option data-img-src="{{url}}" value="{{_id}}">{{name}}</option>
+          {{/each}}
+        </select>
+
+        {{> afQuickField name='title'}}
+        {{> afQuickField name='content'}}
+        {{> afQuickField name='createdAt'}}
+        {{> afQuickField name='owner'}}
+      </fieldset>
+      <button type="submit" class="btn btn-primary">Create</button>
+      {{/autoForm}}
+		</div>
+	</div>
+</template>

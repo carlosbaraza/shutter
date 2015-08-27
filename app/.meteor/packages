@@ -25,3 +25,7 @@ cfs:standard-packages
 cfs:gridfs
 cfs:filesystem
 carlosbaraza:admin
+aldeed:simple-schema
+meteor-image-picker
+jquery
+mrt:jquery-masonry
