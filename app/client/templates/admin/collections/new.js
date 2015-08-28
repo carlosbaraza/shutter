@@ -13,6 +13,9 @@ Template.AdminCollectionsNew.helpers({
   },
   images: function () {
     return Images.find();
+  },
+  urlS: function () {
+    return this.url({ store: 'S' })
   }
 });
 
@@ -24,7 +27,7 @@ Template.AdminCollectionsNew.onCreated(function () {
 
 Template.AdminCollectionsNew.onRendered(function () {
   $("select").imagepicker({
-    show_label: true
+    // show_label: true
   });
 });
 
