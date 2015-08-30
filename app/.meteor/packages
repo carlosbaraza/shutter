@@ -30,3 +30,5 @@ meteor-image-picker
 jquery
 mrt:jquery-masonry
 cfs:graphicsmagick
+mquandalle:bower
+lookback:body-class

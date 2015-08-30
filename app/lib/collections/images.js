@@ -11,7 +11,24 @@ var createM = function (fileObj, readStream, writeStream) {
 };
 
 var createL = function (fileObj, readStream, writeStream) {
-  gm(readStream, fileObj.name()).resize('1600', '1600').stream().pipe(writeStream);
+  gm(readStream, fileObj.name())
+    .resize('1600', '1600')
+    .stream().pipe(writeStream);
+};
+
+var saveMetadata = function saveMetadata(file) {
+  var readStream = file.createReadStream();
+  gm(readStream, file.name())
+    .size({
+        bufferStream: true
+      },
+      FS.Utility.safeCallback(function (err, size) {
+        if (err) {
+          // handle the error
+        } else {
+          file.update({$set: {'metadata.width': size.width, 'metadata.height': size.height}});
+        }
+      }));
 };
 
 Images = new FS.Collection('images', {
@@ -33,6 +50,7 @@ Images = new FS.Collection('images', {
       path: '~/tmp/uploads/images/L'
     }),
     new FS.Store.FileSystem('images', {
+      beforeWrite: saveMetadata,
       path: '~/tmp/uploads/images/orig'
     })
   ],

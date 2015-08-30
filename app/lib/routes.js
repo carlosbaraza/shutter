@@ -1,3 +1,11 @@
+Router.onBeforeAction(function() {
+  BodyClass.run();
+  this.next();
+});
+
+Router.onStop(function() {
+  BodyClass.cleanup();
+});
 
 Router.route('/', {
   name: 'home',

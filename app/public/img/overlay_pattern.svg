@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This is the cover image pattern overlay. Designed by Carlos Baraza. -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     id="bkg" viewBox="0 0 5 5" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Define dots pattern for the overlay layer -->
+    <pattern id='dots' patternUnits='userSpaceOnUse' width='5' height='5' viewBox='0 0 5 5'>
+        <rect width='5' height='5' fill='none'/>
+        <rect width='1' height='1' fill='rgba(0,0,0,0.1)'/>
+    </pattern>
+  </defs>
+
+  <!-- Pattern overlay polygon covering the entire page -->
+  <polygon id="patternOverlay" points="0,0 5,0 5,5 0,5" fill="url(#dots)" />
+</svg>

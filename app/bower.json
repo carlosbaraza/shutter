@@ -1,0 +1,32 @@
+{
+  "name": "shutter",
+  "version": "0.0.1",
+  "dependencies": {
+    "packery": "~1.4.3",
+    "photoswipe": "~4.1.0"
+  },
+  "overrides": {
+    "packery": {
+      "main": [
+        "dist/packery.pkgd.min.js"
+      ],
+      "dependencies": []
+    },
+    "photoswipe": {
+      "main": [
+        "dist/photoswipe.css",
+        "dist/default-skin/default-skin.css",
+        "dist/default-skin/default-skin.png",
+        "dist/default-skin/default-skin.svg",
+        "dist/default-skin/preloader.gif",
+        "dist/photoswipe.js",
+        "dist/photoswipe-ui-default.js"
+      ],
+      "dependencies": []
+    }
+  },
+  "ignoredDependencies": [
+    "outlayer"
+  ],
+  "private": true
+}

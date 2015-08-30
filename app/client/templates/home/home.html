@@ -1,7 +1,74 @@
 <template name="Home">
-  {{> loginButtons}}
-  
-  <div class="home">
-    <h1>Find me in app/client/templates/home/home</h1>
-  </div>
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    {{> loginButtons}}
+
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">Carlos Baraza</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="page-scroll" href="#about">About me</a>
+          </li>
+          <li>
+            <a class="page-scroll" href="#portfolio">Portfolio</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+
+  <header>
+    <div class="header-overlay"></div>
+    <div class="header-content">
+      <div class="header-content-inner">
+        <h1>Carlos Baraza</h1>
+        <p>Photographer</p>
+      </div>
+    </div>
+    <a class="scroll-down fa fa-arrow-left" href="#portfolio" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+  </header>
+
+  <section class="no-padding" id="portfolio">
+    <div class="container-fluid">
+      <div class="row no-gutter">
+        <div class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          {{#each images}}
+            <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="{{url store="L"}}" itemprop="contentUrl" data-size="{{imageDataSize}}">
+                <img src="{{url store="S"}}" itemprop="thumbnail" alt="{{name}}" />
+              </a>
+              <figcaption itemprop="caption description">{{name}}</figcaption>
+            </figure>
+          {{/each}}
+        </div>
+
+        {{> PhotoSwipe}}
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-dark">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            © 2015 Carlos Baraza
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
