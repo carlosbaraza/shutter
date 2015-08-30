@@ -81,18 +81,18 @@ body {
   // Navigation
 
   .navbar-default {
-    background-color: white;
-    border-color: fade(@theme-dark, 5%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: fade(white, 30%);
     .sans-serif-font;
     .transition-all;
     .navbar-header .navbar-brand {
-      color: @theme-primary;
+      color: fade(white, 70%);
       .sans-serif-font;
-      font-weight: 700;
+      font-weight: 200;
       text-transform: uppercase;
       &:hover,
       &:focus {
-        color: darken(@theme-primary, 10%);
+        color: white;
       }
     }
     .nav {
@@ -102,9 +102,9 @@ body {
           text-transform: uppercase;
           font-weight: 700;
           font-size: 13px;
-          color: @theme-dark;
+          color: fade(white, 70%);
           &:hover {
-            color: @theme-primary;
+            color: white;
           }
         }
         &.active {
@@ -119,42 +119,27 @@ body {
         }
       }
     }
-    @media (min-width: 768px) {
-      background-color: transparent;
-      border-color: fade(white, 30%);
+    &.affix {
+      background-color: white;
+      border-color: fade(@theme-dark, 5%);
       .navbar-header .navbar-brand {
-        color: fade(white, 70%);
+        color: @theme-primary;
+        font-size: 14px;
         &:hover,
         &:focus {
-          color: white;
+          color: darken(@theme-primary, 10%);
         }
       }
       .nav > li > a,
       .nav > li > a:focus {
-        color: fade(white, 70%);
+        color: @theme-dark;
         &:hover {
-          color: white;
-        }
-      }
-      &.affix {
-        background-color: white;
-        border-color: fade(@theme-dark, 5%);
-        .navbar-header .navbar-brand {
           color: @theme-primary;
-          font-size: 14px;
-          &:hover,
-          &:focus {
-            color: darken(@theme-primary, 10%);
-          }
-        }
-        .nav > li > a,
-        .nav > li > a:focus {
-          color: @theme-dark;
-          &:hover {
-            color: @theme-primary;
-          }
         }
       }
+    }
+    @media (min-width: 768px) {
+
     }
   }
 
@@ -163,29 +148,36 @@ body {
   header {
     position: relative;
     width: 100%;
-    min-height: auto;
+    min-height: 500px;
     .background-cover;
     background-position: center;
     background-image: url('/img/header.jpg');
     text-align: center;
     color: white;
+    overflow: hidden;
     .header-overlay {
       position: absolute;
       height: 100%;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      background-image: url(/img/overlay_pattern.svg);
-      background-repeat: repeat;
-      background-size: 10px;
+      &.pattern {
+        background-image: url(/img/overlay_pattern.svg);
+        background-repeat: repeat;
+        background-size: 10px;
+      }
+      &.gradient {
+        background: linear-gradient(rgba(0,0,20,0.3) 0%, rgba(0,0,214,0) 15%,rgba(0,0,20,0.3) 100%)
+      }
     }
     .header-content {
-      position: relative;
-      text-align: center;
-      padding: 100px 15px 100px;
+      position: absolute;
+      bottom: 0;
+      text-align: right;
+      padding: 0 30px;
       width: 100%;
       .header-content-inner {
         h1 {
-          font-weight: 700;
+          font-weight: 100;
+          font-size: 36px;
           text-transform: uppercase;
           margin-top: 0;
           margin-bottom: 30px;
@@ -194,31 +186,32 @@ body {
           margin: 30px auto;
         }
         p {
-          font-weight: 300;
           color: fade(white, 70%);
-          font-size: 16px;
-          margin-bottom: 50px;
+          font-size: 24px;
+          font-family: "Times New Roman", Times, serif;
+          margin-bottom: 10px;
         }
       }
     }
     @media (min-width: 768px) {
       min-height: 100%;
       .header-content {
-        position: absolute;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        padding: 0 50px;
+        padding: 0 60px;
         .header-content-inner {
           max-width: 1000px;
           margin-left: auto;
-          margin-right: auto;
+          h1 {
+            font-weight: 100;
+            font-size: 60px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 40px;
+          }
           p {
-            font-size: 18px;
-            max-width: 80%;
+            font-size: 36px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 20px;
           }
         }
       }
@@ -229,12 +222,12 @@ body {
     display: block;
     position: absolute;
     z-index: 100;
-    bottom: 45px;
-    left: 50%;
+    bottom: 30px;
+    left: 30px;
     margin-left: -16px;
-    width: 34px;
-    height: 34px;
-    font-size: 34px;
+    width: 45px;
+    height: 45px;
+    font-size: 45px;
     text-align: center;
     text-decoration: none !important;
     color: rgba(255,255,255,0.7);
@@ -245,6 +238,15 @@ body {
     animation: bounce 4s 2s infinite;
     &:hover {
       color: #777;
+    }
+    @media (min-width: 768px) {
+      bottom: -50px;
+      left: -30px;
+      margin-left: -16px;
+      font-weight: 100;
+      width: 300px;
+      height: 300px;
+      font-size: 300px;
     }
   }
 
