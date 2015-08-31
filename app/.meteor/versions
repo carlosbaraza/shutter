@@ -17,6 +17,7 @@ blaze-tools@1.0.3
 boilerplate-generator@1.0.3
 callback-hook@1.0.3
 carlosbaraza:admin@1.2.2
+carlosbaraza:meteor-socicon@2.4.0
 cfs:access-point@0.1.49
 cfs:base-package@0.0.30
 cfs:collection@0.5.5
