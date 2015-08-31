@@ -1,7 +1,7 @@
 Items = new Meteor.Collection('items');
 
 Schemas.Items = new SimpleSchema({
-  image: {
+  imageId: {
     type: String,
     autoform: {
       afFieldInput: {
@@ -10,6 +10,9 @@ Schemas.Items = new SimpleSchema({
         label: 'Choose file'
       }
     }
+  },
+  isCover: {
+    type: Boolean
   },
   title: {
     type: String,
@@ -27,7 +30,6 @@ Schemas.Items = new SimpleSchema({
   createdAt: {
     label: 'Created at (If left blank, it will be current moment)',
     type: Date,
-    label: 'Date',
     autoValue: function () {
       if (this.isInsert) {
         return new Date();
@@ -56,4 +58,22 @@ Schemas.Items = new SimpleSchema({
   }
 });
 
-Items.attachSchema(Schemas.Items)
+Items.attachSchema(Schemas.Items);
+
+// Hooks
+
+Items.before.remove(function beforeRemoveItem(userId, doc) {
+  Images.remove(doc.imageId);
+});
+
+// Helpers
+
+Items.helpers({
+  image: function getImage() {
+    return Images.findOne(this.imageId);
+  },
+  imageName: function imageName() {
+    var image = this.image();
+    if (image) return image.name();
+  }
+});

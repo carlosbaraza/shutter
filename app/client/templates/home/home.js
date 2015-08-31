@@ -29,7 +29,8 @@ Template.Home.onCreated(function () {
 });
 
 Template.Home.onRendered(function () {
-  var backgroundImageUrl = Images.findOne().url({ store: 'L' });
+  var backgroundImage = Items.findOne({ isCover: true }).image(),
+      backgroundImageUrl = backgroundImage.url({ store: 'L' });
   $('header').css('backgroundImage', "url(" + backgroundImageUrl + ")");
 
   initPortfolioGallery();

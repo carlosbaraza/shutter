@@ -12,6 +12,9 @@ Router.route('/', {
   controller: 'HomeController',
   where: 'client',
   waitOn: function () {
-    return Meteor.subscribe('images');
+    return [
+      Meteor.subscribe('images'),
+      Meteor.subscribe('items')
+    ];
   }
 });

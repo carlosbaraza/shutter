@@ -5,19 +5,23 @@ AdminConfig = {
   dashboard: {
   },
   collections: {
-    Items: {},
+    Items: {
+      routes: {
+        view: { waitOn: subscribeImages },
+        new: { waitOn: subscribeImages },
+        edit: { waitOn: subscribeImages }
+      },
+      tableColumns: [
+        { label: 'ID', name: '_id' },
+        { label: 'Image name', name: 'imageName()' },
+        { label: 'Is cover image', name: 'isCover' }
+      ],
+      extraFields: ['imageId']
+    },
     Collections: {
       routes: {
-        new: {
-          waitOn: function () {
-            return Meteor.subscribe('images');
-          }
-        },
-        edit: {
-          waitOn: function () {
-            return Meteor.subscribe('images');
-          }
-        }
+        new: { waitOn: subscribeImages },
+        edit: { waitOn: subscribeImages }
       },
       templates: {
         new: {
@@ -27,3 +31,7 @@ AdminConfig = {
     }
   }
 };
+
+function subscribeImages() {
+  return Meteor.subscribe('images');
+}

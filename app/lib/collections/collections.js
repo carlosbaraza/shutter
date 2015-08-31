@@ -20,7 +20,6 @@ Schemas.Collections = new SimpleSchema({
   createdAt: {
     label: 'Created at (If left blank, it will be current moment)',
     type: Date,
-    label: 'Date',
     autoValue: function () {
       if (this.isInsert) {
         return new Date();
@@ -49,4 +48,4 @@ Schemas.Collections = new SimpleSchema({
   }
 });
 
-Collections.attachSchema(Schemas.Collections)
+Collections.attachSchema(Schemas.Collections);
