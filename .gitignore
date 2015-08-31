@@ -2,6 +2,7 @@
 
 app/packages/meteor-admin
 app/packages/meteor-image-picker
+app/packages/meteor-socicon
 
 # Some files created by the jasmine velocity package.
 app/tests/jasmine/server/unit/package-stubs.js
