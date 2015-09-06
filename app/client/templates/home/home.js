@@ -14,10 +14,10 @@ Template.Home.helpers({
   imageDataSize: function () {
     try {
       var ratio = this.metadata.height / this.metadata.width;
-      if (ratio) return '1024x' + 1024 * ratio;
+      if (ratio) return '1600x' + 1600 * ratio;
       throw "Wrong ratio";
     } catch(error) {
-      return '1024x1024';
+      return '1600x1600';
     }
   }
 });
